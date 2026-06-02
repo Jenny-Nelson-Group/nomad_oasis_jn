@@ -4356,8 +4356,8 @@ wheels = [
 
 [[package]]
 name = "pynxtools-xps"
-version = "0.6.2"
-source = { git = "https://github.com/FAIRmat-NFDI/pynxtools-xps.git#b79fb8ed327ea3c89f13d6aa670dc810dcca4905" }
+version = "0.6.2.post1.dev2+g0ee6e199e"
+source = { git = "https://github.com/FAIRmat-NFDI/pynxtools-xps.git#0ee6e199ecd9092a6154958a787f001f0235a69c" }
 dependencies = [
     { name = "igor2" },
     { name = "jsonschema" },
