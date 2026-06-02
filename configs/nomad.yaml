@@ -7,11 +7,31 @@ oasis:
   uses_central_user_management: true
 
 plugins:
+#   # We only include our schema here. Without the explicit include, all plugins will be
+#   # loaded. Many build in plugins require more dependencies. Install nomad-lab[parsing]
+#   # to make all default plugins work.
   entry_points:
-    options:
-      nomad_north_jupyter.north_tools:jupyter:
-        north_tool:
-          image: ghcr.io/nomad-hzb/hzb-se-image-2/jupyter:main
+    exclude: [
+      "nomad_chemical_energy.apps:necc_find_app",
+      "nomad_chemical_energy.apps:necc_compare_app",
+      "nomad_chemical_energy.apps:nome_oer_cp_app",
+    ]
+    include: [
+    "hzb_combinatorial_libraries.schema_packages:hzb_library_package",
+    #"hzb_combinatorial_libraries.parsers:hzb_library_parser", only enable after fixing conflict with trpl
+    "nomad_hysprint.schema_packages:hysprint_package",
+    "nomad_hysprint.parsers:hysprint_parser",
+    "nomad_hysprint.parsers:hysprint_experiment_parser",
+    "nomad_chemical_energy.schema_packages:ce_wannsee_package",
+    "nomad_chemical_energy.schema_packages:hzb_characterization_package",
+    "nomad_hysprint.apps:hysprint_voila_app",
+    "nomad_hysprint.apps:absolute_pl_app",
+    "nomad_hysprint.apps:solar_cell_overview_entry_point",
+    "nomad_gui.apis:gui_api"
+    #"nomad_chemical_energy.parsers:ce_wannsee_cor_parser",
+    #"nomad_chemical_energy.parsers:ce_wannsee_xrd_xy_parser",
+    ]
+
 
 meta:
   deployment: "oasis"
