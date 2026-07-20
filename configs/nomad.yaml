@@ -1,5 +1,5 @@
 services:
-  api_host: "localhost"
+  api_host: "172.22.118.79"
   api_base_path: "/nomad-oasis"
 
 oasis:
@@ -16,7 +16,25 @@ plugins:
       "nomad_chemical_energy.apps:necc_compare_app",
       "nomad_chemical_energy.apps:nome_oer_cp_app",
     ]
+    options:
+      nomad_north_jupyter.north_tools:jupyter:
+        north_tool:
+          image: ghcr.io/jenny-nelson-group/nomad_oasis_jn/jupyter:main
+          image_pull_policy: IfNotPresent
+      voila:
+        entry_point_type: north_tool
+        north_tool:
+          short_description: A jupyter webapp container with voila opens voila
+          description: A jupyter hub webapp container with voila installed.
+          image: ghcr.io/jenny-nelson-group/nomad_oasis_jn/jupyter:main
+          image_pull_policy: IfNotPresent
+          path_prefix: voila/render
+          with_path: true
+          file_extensions: [ipynb]
+          mount_path: /home/jovyan
     include: [
+    "nomad_north_jupyter.north_tools:jupyter",
+    "voila",
     "hzb_combinatorial_libraries.schema_packages:hzb_library_package",
     #"hzb_combinatorial_libraries.parsers:hzb_library_parser", only enable after fixing conflict with trpl
     "nomad_hysprint.schema_packages:hysprint_package",
@@ -27,7 +45,19 @@ plugins:
     "nomad_hysprint.apps:hysprint_voila_app",
     "nomad_hysprint.apps:absolute_pl_app",
     "nomad_hysprint.apps:solar_cell_overview_entry_point",
-    "nomad_gui.apis:gui_api"
+    "nomad_gui.apis:gui_api",
+    # generic ELN base sections (Instrument/Process/Measurement/Activity), already installed
+    # transitively via nomad-hysprint/nomad-chemical-energy but not exposed until included here
+    "nomad_measurements:schema_entry_point",
+    # built-in "ELN" tab in the Explore menu, bundled with nomad-lab itself (nomad/config/defaults.yaml)
+    "apps/3_experiment/1_eln",
+    # additional nomad-measurements schemas/parsers are available if needed, but left disabled
+    # since they parse file types (XRD, UV-Vis) that may collide with the chemical-energy
+    # parsers below once those are enabled:
+    #"nomad_measurements.xrd:schema_entry_point",
+    #"nomad_measurements.xrd:parser_entry_point",
+    #"nomad_measurements.transmission:schema_entry_point",
+    #"nomad_measurements.transmission:parser_entry_point",
     #"nomad_chemical_energy.parsers:ce_wannsee_cor_parser",
     #"nomad_chemical_energy.parsers:ce_wannsee_xrd_xy_parser",
     ]

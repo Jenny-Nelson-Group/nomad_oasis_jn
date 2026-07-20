@@ -125,7 +125,7 @@ services:
   # nomad worker (processing)
   worker:
     restart: unless-stopped
-    image: ghcr.io/fairmat-nfdi/nomad-distro-template:main
+    image: ghcr.io/jenny-nelson-group/nomad_oasis_jn:main
     platform: linux/amd64
     environment:
       NOMAD_SERVICE: nomad_oasis_worker
@@ -143,7 +143,7 @@ services:
       mongo:
         condition: service_healthy
     volumes:
-      # - ./configs/nomad.yaml:/app/nomad.yaml
+      - ./configs/nomad.yaml:/app/nomad.yaml
       - ./.volumes/fs:/app/.volumes/fs
     command: python -m nomad.cli admin run action-internal-worker
     healthcheck:
@@ -235,7 +235,7 @@ services:
   # nomad app (api + proxy)
   app:
     restart: unless-stopped
-    image: ghcr.io/fairmat-nfdi/nomad-distro-template:main
+    image: ghcr.io/jenny-nelson-group/nomad_oasis_jn:main
     platform: linux/amd64
     container_name: nomad_oasis_app
     environment:
@@ -259,7 +259,7 @@ services:
       north:
         condition: service_started
     volumes:
-      # - ./configs/nomad.yaml:/app/nomad.yaml
+      - ./configs/nomad.yaml:/app/nomad.yaml
       - ./.volumes/fs:/app/.volumes/fs
     command: python -m nomad.cli admin run app --with-gui --gunicorn --host 0.0.0.0
     healthcheck:
@@ -277,7 +277,7 @@ services:
   # nomad remote tools hub (JupyterHUB, e.g. for AI Toolkit)
   north:
     restart: unless-stopped
-    image: ghcr.io/fairmat-nfdi/nomad-distro-template:main
+    image: ghcr.io/jenny-nelson-group/nomad_oasis_jn:main
     platform: linux/amd64
     container_name: nomad_oasis_north
     environment:
@@ -293,10 +293,12 @@ services:
     env_file:
       - ./.env
     volumes:
-      # - ./configs/nomad.yaml:/app/nomad.yaml
+      - ./configs/nomad.yaml:/app/nomad.yaml
       - ./.volumes/fs:/app/.volumes/fs
       - /var/run/docker.sock:/var/run/docker.sock
-    user: "1000:991"
+    user: "1000:0"
+    group_add:
+      - "1001" # gid owning /var/run/docker.sock on the host; lets the north container reach the Docker socket to spawn north tools
     command: python -m nomad.cli admin run hub
     healthcheck:
       test:
@@ -314,7 +316,7 @@ services:
   # to enable the logtransfer service run "docker compose --profile with_logtransfer up"
   logtransfer:
     restart: unless-stopped
-    image: ghcr.io/fairmat-nfdi/nomad-distro-template:main
+    image: ghcr.io/jenny-nelson-group/nomad_oasis_jn:main
     platform: linux/amd64
     container_name: nomad_oasis_logtransfer
     environment:
@@ -329,7 +331,7 @@ services:
       mongo:
         condition: service_healthy
     volumes:
-      # - ./configs/nomad.yaml:/app/nomad.yaml
+      - ./configs/nomad.yaml:/app/nomad.yaml
       - ./.volumes/fs:/app/.volumes/fs
     command: python -m nomad.cli admin run logtransfer
     profiles: ["with_logtransfer"]
@@ -362,10 +364,10 @@ services:
 
   # jupyterlab image: (this is only used to pull the image, no service is run for this)
   jupyterlab_image:
-    image: ghcr.io/fairmat-nfdi/nomad-distro-template/jupyter:main
+    image: ghcr.io/jenny-nelson-group/nomad_oasis_jn/jupyter:main
     platform: linux/amd64
     container_name: nomad_jupyter_image
-    pull_policy: always
+    pull_policy: never
     entrypoint: ["true"]
     deploy:
       replicas: 0 # Ensures the service isn't started
