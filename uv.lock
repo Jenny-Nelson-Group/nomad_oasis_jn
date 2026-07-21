@@ -3186,7 +3186,7 @@ requires-dist = [
     { name = "nomad-baseclasses", marker = "extra == 'plugins'", git = "https://github.com/nomad-hzb/nomad-baseclasses.git" },
     { name = "nomad-chemical-energy", marker = "extra == 'plugins'", git = "https://github.com/nomad-hzb/nomad-chemical-energy.git" },
     { name = "nomad-gui", marker = "extra == 'plugins'", specifier = "==2.0.0a2.dev583" },
-    { name = "nomad-hysprint", marker = "extra == 'plugins'", git = "https://github.com/nomad-hzb/nomad-hysprint.git" },
+    { name = "nomad-hysprint", marker = "extra == 'plugins'", git = "https://github.com/Jenny-Nelson-Group/nomad-hysprint.git" },
     { name = "nomad-lab", extras = ["infrastructure"], specifier = "==1.4.2" },
     { name = "nomad-lab", extras = ["infrastructure", "dev"], marker = "extra == 'dev'", specifier = "==1.4.2" },
     { name = "nomad-material-processing", marker = "extra == 'plugins'", git = "https://github.com/FAIRmat-NFDI/nomad-material-processing.git?rev=103-add-specialized-combinatorialsample-schema" },
@@ -3218,7 +3218,7 @@ wheels = [
 [[package]]
 name = "nomad-hysprint"
 version = "1.0.0"
-source = { git = "https://github.com/nomad-hzb/nomad-hysprint.git#e158902c37eabfb614949590fb7eeb62ab0c4476" }
+source = { git = "https://github.com/Jenny-Nelson-Group/nomad-hysprint.git#7ed41af7675dd113148bbcd9f28ad0310d2ecf96" }
 dependencies = [
     { name = "httpx" },
     { name = "nomad-baseclasses" },

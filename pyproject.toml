@@ -27,7 +27,7 @@ repository = "https://github.com/Jenny-Nelson-Group/nomad_oasis_jn"
 plugins = [
   'nomad-material-processing @ git+https://github.com/FAIRmat-NFDI/nomad-material-processing.git@103-add-specialized-combinatorialsample-schema',
   'nomad-baseclasses @ git+https://github.com/nomad-hzb/nomad-baseclasses.git',
-  'nomad-hysprint @ git+https://github.com/nomad-hzb/nomad-hysprint.git',
+  'nomad-hysprint',
   'hzb-combinatorial-libraries @ git+https://github.com/nomad-hzb/hzb-combinatorial-libraries-plugin.git',
   'nomad-chemical-energy @ git+https://github.com/nomad-hzb/nomad-chemical-energy.git',
   "nomad-gui==2.0.0a2.dev583",
@@ -59,8 +59,11 @@ dev = ["nomad-lab[infrastructure, dev]==1.4.2"]
 extra-index-url = [
   "https://gitlab.mpcdf.mpg.de/api/v4/projects/2187/packages/pypi/simple",
 ]
-constraint-dependencies = ["hyperspy>=1.7.6", "pyzmq==27.0.2"] 
+constraint-dependencies = ["hyperspy>=1.7.6", "pyzmq==27.0.2"]
 prerelease = "explicit"
+
+[tool.uv.sources]
+nomad-hysprint = { git = "https://github.com/Jenny-Nelson-Group/nomad-hysprint.git" }
 
 [tool.setuptools.packages.find]
 exclude = ["gui*", "docs*", "config*"]
