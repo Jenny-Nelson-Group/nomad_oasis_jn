@@ -3183,7 +3183,7 @@ requires-dist = [
     { name = "jupyterlab-h5web", marker = "extra == 'jupyter'" },
     { name = "jupyterlab-spreadsheet-editor", marker = "extra == 'jupyter'" },
     { name = "lmfit", marker = "extra == 'jupyter'" },
-    { name = "nomad-baseclasses", marker = "extra == 'plugins'", git = "https://github.com/nomad-hzb/nomad-baseclasses.git" },
+    { name = "nomad-baseclasses", marker = "extra == 'plugins'", git = "https://github.com/nomad-hzb/nomad-baseclasses.git?rev=5cf1919f8cbba7a101f2e66989348a281db205ea" },
     { name = "nomad-chemical-energy", marker = "extra == 'plugins'", git = "https://github.com/nomad-hzb/nomad-chemical-energy.git" },
     { name = "nomad-gui", marker = "extra == 'plugins'", specifier = "==2.0.0a2.dev583" },
     { name = "nomad-hysprint", marker = "extra == 'plugins'", git = "https://github.com/Jenny-Nelson-Group/nomad-hysprint.git" },
