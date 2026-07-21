@@ -26,10 +26,10 @@ repository = "https://github.com/Jenny-Nelson-Group/nomad_oasis_jn"
 # Add your plugins to the list below.
 plugins = [
   'nomad-material-processing @ git+https://github.com/FAIRmat-NFDI/nomad-material-processing.git@103-add-specialized-combinatorialsample-schema',
-  'nomad-baseclasses @ git+https://github.com/nomad-hzb/nomad-baseclasses.git',
+  'nomad-baseclasses @ git+https://github.com/Jenny-Nelson-Group/nomad-baseclasses.git',
   'nomad-hysprint',
-  'hzb-combinatorial-libraries @ git+https://github.com/nomad-hzb/hzb-combinatorial-libraries-plugin.git',
-  'nomad-chemical-energy @ git+https://github.com/nomad-hzb/nomad-chemical-energy.git',
+  'hzb-combinatorial-libraries @ git+https://github.com/Jenny-Nelson-Group/hzb-combinatorial-libraries-plugin.git',
+  'nomad-chemical-energy @ git+https://github.com/Jenny-Nelson-Group/nomad-chemical-energy.git',
   "nomad-gui==2.0.0a2.dev583",
   "nomad-north-jupyter>=0.2.5"
 ]
@@ -64,7 +64,9 @@ prerelease = "explicit"
 
 [tool.uv.sources]
 nomad-hysprint = { git = "https://github.com/Jenny-Nelson-Group/nomad-hysprint.git" }
-nomad-baseclasses = { git = "https://github.com/nomad-hzb/nomad-baseclasses.git", rev = "5cf1919f8cbba7a101f2e66989348a281db205ea" }
+nomad-baseclasses = { git = "https://github.com/Jenny-Nelson-Group/nomad-baseclasses.git", rev = "94afad52d1d3632aaf1fc6d443d46eb6e4df0438" }
+hzb-combinatorial-libraries = { git = "https://github.com/Jenny-Nelson-Group/hzb-combinatorial-libraries-plugin.git" }
+nomad-chemical-energy = { git = "https://github.com/Jenny-Nelson-Group/nomad-chemical-energy.git" }
 
 [tool.setuptools.packages.find]
 exclude = ["gui*", "docs*", "config*"]
