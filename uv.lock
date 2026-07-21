@@ -1568,7 +1568,7 @@ wheels = [
 [[package]]
 name = "hzb-combinatorial-libraries"
 version = "1.0.0"
-source = { git = "https://github.com/nomad-hzb/hzb-combinatorial-libraries-plugin.git#0aab9536521bedd12d860c813404df499d10af92" }
+source = { git = "https://github.com/Jenny-Nelson-Group/hzb-combinatorial-libraries-plugin.git?rev=673725c36c05886205af0e0f114be8c5e37cec96#673725c36c05886205af0e0f114be8c5e37cec96" }
 dependencies = [
     { name = "chardet" },
     { name = "hdf5plugin" },
@@ -3096,7 +3096,7 @@ wheels = [
 [[package]]
 name = "nomad-baseclasses"
 version = "1.0.1"
-source = { git = "https://github.com/nomad-hzb/nomad-baseclasses.git#5cf1919f8cbba7a101f2e66989348a281db205ea" }
+source = { git = "https://github.com/Jenny-Nelson-Group/nomad-baseclasses.git?rev=94afad52d1d3632aaf1fc6d443d46eb6e4df0438#94afad52d1d3632aaf1fc6d443d46eb6e4df0438" }
 dependencies = [
     { name = "chardet" },
     { name = "hdf5plugin" },
@@ -3115,7 +3115,7 @@ dependencies = [
 [[package]]
 name = "nomad-chemical-energy"
 version = "1.0.0"
-source = { git = "https://github.com/nomad-hzb/nomad-chemical-energy.git#e9fcca62e15bbc2333e46e63dd7f36f3d63100e6" }
+source = { git = "https://github.com/Jenny-Nelson-Group/nomad-chemical-energy.git?rev=9688363c1c624df0cfd0b5e916588258b1c821ce#9688363c1c624df0cfd0b5e916588258b1c821ce" }
 dependencies = [
     { name = "httpx" },
     { name = "nomad-baseclasses" },
@@ -3170,7 +3170,7 @@ plugins = [
 [package.metadata]
 requires-dist = [
     { name = "electrokitty", marker = "extra == 'jupyter'" },
-    { name = "hzb-combinatorial-libraries", marker = "extra == 'plugins'", git = "https://github.com/nomad-hzb/hzb-combinatorial-libraries-plugin.git" },
+    { name = "hzb-combinatorial-libraries", marker = "extra == 'plugins'", git = "https://github.com/Jenny-Nelson-Group/hzb-combinatorial-libraries-plugin.git?rev=673725c36c05886205af0e0f114be8c5e37cec96" },
     { name = "ipyaggrid", marker = "extra == 'jupyter'" },
     { name = "ipydatagrid", marker = "extra == 'jupyter'" },
     { name = "ipykernel", marker = "extra == 'jupyter'", specifier = "<7" },
@@ -3183,10 +3183,10 @@ requires-dist = [
     { name = "jupyterlab-h5web", marker = "extra == 'jupyter'" },
     { name = "jupyterlab-spreadsheet-editor", marker = "extra == 'jupyter'" },
     { name = "lmfit", marker = "extra == 'jupyter'" },
-    { name = "nomad-baseclasses", marker = "extra == 'plugins'", git = "https://github.com/nomad-hzb/nomad-baseclasses.git?rev=5cf1919f8cbba7a101f2e66989348a281db205ea" },
-    { name = "nomad-chemical-energy", marker = "extra == 'plugins'", git = "https://github.com/nomad-hzb/nomad-chemical-energy.git" },
+    { name = "nomad-baseclasses", marker = "extra == 'plugins'", git = "https://github.com/Jenny-Nelson-Group/nomad-baseclasses.git?rev=94afad52d1d3632aaf1fc6d443d46eb6e4df0438" },
+    { name = "nomad-chemical-energy", marker = "extra == 'plugins'", git = "https://github.com/Jenny-Nelson-Group/nomad-chemical-energy.git?rev=9688363c1c624df0cfd0b5e916588258b1c821ce" },
     { name = "nomad-gui", marker = "extra == 'plugins'", specifier = "==2.0.0a2.dev583" },
-    { name = "nomad-hysprint", marker = "extra == 'plugins'", git = "https://github.com/Jenny-Nelson-Group/nomad-hysprint.git" },
+    { name = "nomad-hysprint", marker = "extra == 'plugins'", git = "https://github.com/Jenny-Nelson-Group/nomad-hysprint.git?rev=9b9eb1a056a6ca7851e10646d7ed83fd63031b4d" },
     { name = "nomad-lab", extras = ["infrastructure"], specifier = "==1.4.2" },
     { name = "nomad-lab", extras = ["infrastructure", "dev"], marker = "extra == 'dev'", specifier = "==1.4.2" },
     { name = "nomad-material-processing", marker = "extra == 'plugins'", git = "https://github.com/FAIRmat-NFDI/nomad-material-processing.git?rev=103-add-specialized-combinatorialsample-schema" },
@@ -3218,7 +3218,7 @@ wheels = [
 [[package]]
 name = "nomad-hysprint"
 version = "1.0.0"
-source = { git = "https://github.com/Jenny-Nelson-Group/nomad-hysprint.git#7ed41af7675dd113148bbcd9f28ad0310d2ecf96" }
+source = { git = "https://github.com/Jenny-Nelson-Group/nomad-hysprint.git?rev=9b9eb1a056a6ca7851e10646d7ed83fd63031b4d#9b9eb1a056a6ca7851e10646d7ed83fd63031b4d" }
 dependencies = [
     { name = "httpx" },
     { name = "nomad-baseclasses" },
