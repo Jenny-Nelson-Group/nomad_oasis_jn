@@ -3186,7 +3186,7 @@ requires-dist = [
     { name = "nomad-baseclasses", marker = "extra == 'plugins'", git = "https://github.com/Jenny-Nelson-Group/nomad-baseclasses.git?rev=94afad52d1d3632aaf1fc6d443d46eb6e4df0438" },
     { name = "nomad-chemical-energy", marker = "extra == 'plugins'", git = "https://github.com/Jenny-Nelson-Group/nomad-chemical-energy.git?rev=9688363c1c624df0cfd0b5e916588258b1c821ce" },
     { name = "nomad-gui", marker = "extra == 'plugins'", specifier = "==2.0.0a2.dev583" },
-    { name = "nomad-hysprint", marker = "extra == 'plugins'", git = "https://github.com/Jenny-Nelson-Group/nomad-hysprint.git?rev=9b9eb1a056a6ca7851e10646d7ed83fd63031b4d" },
+    { name = "nomad-hysprint", marker = "extra == 'plugins'", git = "https://github.com/Jenny-Nelson-Group/nomad-hysprint.git?rev=acdea1afeeab7c12d6b19e3d54759e65feb679a2" },
     { name = "nomad-lab", extras = ["infrastructure"], specifier = "==1.4.2" },
     { name = "nomad-lab", extras = ["infrastructure", "dev"], marker = "extra == 'dev'", specifier = "==1.4.2" },
     { name = "nomad-material-processing", marker = "extra == 'plugins'", git = "https://github.com/FAIRmat-NFDI/nomad-material-processing.git?rev=103-add-specialized-combinatorialsample-schema" },
@@ -3218,7 +3218,7 @@ wheels = [
 [[package]]
 name = "nomad-hysprint"
 version = "1.0.0"
-source = { git = "https://github.com/Jenny-Nelson-Group/nomad-hysprint.git?rev=9b9eb1a056a6ca7851e10646d7ed83fd63031b4d#9b9eb1a056a6ca7851e10646d7ed83fd63031b4d" }
+source = { git = "https://github.com/Jenny-Nelson-Group/nomad-hysprint.git?rev=acdea1afeeab7c12d6b19e3d54759e65feb679a2#acdea1afeeab7c12d6b19e3d54759e65feb679a2" }
 dependencies = [
     { name = "httpx" },
     { name = "nomad-baseclasses" },
@@ -3324,7 +3324,7 @@ infrastructure = [
 [[package]]
 name = "nomad-luqy-plugin"
 version = "0.1.0"
-source = { git = "https://github.com/Pepe-Marquez/nomad-luqy-plugin.git#fcbee16c352d367512cb5312c66b34e3f5d21ac3" }
+source = { git = "https://github.com/Pepe-Marquez/nomad-luqy-plugin.git?rev=fcbee16c352d367512cb5312c66b34e3f5d21ac3#fcbee16c352d367512cb5312c66b34e3f5d21ac3" }
 dependencies = [
     { name = "nomad-lab" },
     { name = "nomad-measurements" },
@@ -4371,7 +4371,7 @@ wheels = [
 [[package]]
 name = "pynxtools-xps"
 version = "0.6.2.post1.dev2+g0ee6e199e"
-source = { git = "https://github.com/FAIRmat-NFDI/pynxtools-xps.git#0ee6e199ecd9092a6154958a787f001f0235a69c" }
+source = { git = "https://github.com/FAIRmat-NFDI/pynxtools-xps.git?rev=0ee6e199ecd9092a6154958a787f001f0235a69c#0ee6e199ecd9092a6154958a787f001f0235a69c" }
 dependencies = [
     { name = "igor2" },
     { name = "jsonschema" },
