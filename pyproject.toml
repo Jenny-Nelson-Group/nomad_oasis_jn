@@ -64,6 +64,7 @@ prerelease = "explicit"
 
 [tool.uv.sources]
 nomad-hysprint = { git = "https://github.com/Jenny-Nelson-Group/nomad-hysprint.git" }
+nomad-baseclasses = { git = "https://github.com/nomad-hzb/nomad-baseclasses.git", rev = "5cf1919f8cbba7a101f2e66989348a281db205ea" }
 
 [tool.setuptools.packages.find]
 exclude = ["gui*", "docs*", "config*"]
