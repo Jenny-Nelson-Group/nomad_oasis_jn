@@ -16,8 +16,15 @@ gzip_types
     application/x-javascript
     application/json;
 
+# Resolve app/north via Docker's embedded DNS at request time (rather than
+# once at nginx startup) so recreating those containers - which gives them a
+# new internal IP each time - doesn't require restarting this proxy too.
+# proxy_pass needs a variable (not a bare hostname) for this to take effect.
+resolver 127.0.0.11 valid=10s;
+
 location / {
-    proxy_pass http://app:8000;
+    set $backend_app http://app:8000;
+    proxy_pass $backend_app;
 }
 
 location ~ /nomad-oasis\/?(gui)?$ {
@@ -27,12 +34,14 @@ location ~ /nomad-oasis\/?(gui)?$ {
 location /nomad-oasis/gui/ {
     proxy_intercept_errors on;
     error_page 404 = @redirect_to_index;
-    proxy_pass http://app:8000;
+    set $backend_app http://app:8000;
+    proxy_pass $backend_app;
 }
 
 location @redirect_to_index {
     rewrite ^ /nomad-oasis/gui/index.html break;
-    proxy_pass http://app:8000;
+    set $backend_app http://app:8000;
+    proxy_pass $backend_app;
 }
 
 location /nomad-oasis/docs/ {
@@ -40,7 +49,8 @@ location /nomad-oasis/docs/ {
     # the assets are not loaded correctly (a broken page rendered)
     proxy_intercept_errors on;
     error_page 404 = @docs404redirect;
-    proxy_pass http://app:8000;
+    set $backend_app http://app:8000;
+    proxy_pass $backend_app;
 }
 
 location @docs404redirect {
@@ -53,23 +63,27 @@ location ~ \/gui\/(service-worker\.js|meta\.json)$ {
     if_modified_since off;
     expires off;
     etag off;
-    proxy_pass http://app:8000;
+    set $backend_app http://app:8000;
+    proxy_pass $backend_app;
 }
 
 location ~ /api/v1/uploads(/?$|.*/raw|.*/bundle?$)  {
     client_max_body_size 35g;
     proxy_request_buffering off;
-    proxy_pass http://app:8000;
+    set $backend_app http://app:8000;
+    proxy_pass $backend_app;
 }
 
 location ~ /api/v1/.*/download {
     proxy_buffering off;
-    proxy_pass http://app:8000;
+    set $backend_app http://app:8000;
+    proxy_pass $backend_app;
 }
 
 location /nomad-oasis/north/ {
     client_max_body_size 500m;
-    proxy_pass http://north:9000;
+    set $backend_north http://north:9000;
+    proxy_pass $backend_north;
 
     proxy_set_header X-Real-IP $remote_addr;
     proxy_set_header Host $host;
